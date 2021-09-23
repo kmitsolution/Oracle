@@ -217,3 +217,23 @@ where  not exists
 (select * from EMP
 where DEPTNO = DEPT.DEPTNO);
 ```
+
+### ResultSet Commands
+
+Example: Assume that we have a table EMP2 that has the same structure and columns
+as the table EMP:
+```sql
+ All employee numbers and names from both tables:
+select EMPNO, ENAME from EMP
+union
+select EMPNO, ENAME from EMP2;
+ Employees who are listed in both EMP and EMP2:
+select * from EMP
+intersect
+select * from EMP2;
+ Employees who are only listed in EMP:
+select * from EMP
+minus
+select * from EMP2;
+
+```
