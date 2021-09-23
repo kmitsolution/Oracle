@@ -133,3 +133,20 @@ Alter table Student drop constraint MARKSCHECK
 Alter table Student add constraint MARKSCHECK check (Marks>=70)
 
   ```
+  ### Add Autoincrement column
+  
+  ```sql
+  CREATE SEQUENCE dept_seq START WITH 1;
+
+CREATE TABLE departments (
+  ID           NUMBER(10)    DEFAULT dept_seq.nextval NOT NULL,
+  DESCRIPTION  VARCHAR2(50)  NOT NULL);
+
+ALTER TABLE departments ADD (
+  CONSTRAINT dept_pk PRIMARY KEY (ID));
+  
+  insert into departments (DESCRIPTION) values('dept1');
+  insert into departments (DESCRIPTION) values('dept2');
+  
+  select * from departments
+  ```
