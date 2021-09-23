@@ -169,3 +169,14 @@ ALTER TABLE departments ADD (
   ```sql
   Trucate table departments
   ```
+  
+  ### Update Statement
+  To update record(s) in a table.
+
+  
+  ```sql
+  
+Update Student set streetaddress='S0' where id=1
+
+Update Student set streetaddress=Concat(streetaddress , '-A1')
+  ```
