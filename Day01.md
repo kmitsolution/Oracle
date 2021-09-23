@@ -192,3 +192,28 @@ Select * from Student where 1=0
 insert into Student1
 select * from Student 
   ```
+  
+
+### Retrieve all employees who are working in department 1 and who earn at least as much as any (i.e., at least one) employee working in department 2:
+```sql
+select * from EMP
+where SAL > any
+(select SAL from EMP
+where DEPTNO = 2)
+and DEPTNO = 1;
+```
+### List all employees who are not working in department 1 and who earn more than all employees working in department 1:
+```sql
+select * from EMP
+where SAL >= all
+(select SAL from EMP
+where DEPTNO = 1)
+and DEPTNO <> 1;
+```
+### List all departments that have no employees:
+```sql
+select * from DEPT
+where  not exists
+(select * from EMP
+where DEPTNO = DEPT.DEPTNO);
+```
