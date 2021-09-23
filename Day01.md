@@ -237,3 +237,11 @@ minus
 select * from EMP2;
 
 ```
+
+### Drop Table
+```sql
+  Drop table Student2
+```
+### Sql Functions Refernces
+
+https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions001.htm
