@@ -108,7 +108,7 @@ insert into Sports values(1002,'Hockey','Singh',2)
   
   ### Alter Table
   
-  ```
+  ```sql
   -- Add a column in Student table with name as State
 Alter table student add  State Varchar(30)
 
