@@ -150,3 +150,22 @@ ALTER TABLE departments ADD (
   
   select * from departments
   ```
+  
+  ### Delete Statement
+  Delete the records from the table and it can be rolled back
+  
+  ```sql
+  select * from departments
+  delete from departments
+  select * from departments
+  --- rollback will revert back the changes deleted records we can see again
+  rollback
+    
+  ```
+  
+  ### Truncate command
+  Delete all the records permanently means cannot be rolledback
+  
+  ```sql
+  Trucate table departments
+  ```
