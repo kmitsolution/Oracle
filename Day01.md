@@ -180,3 +180,15 @@ Update Student set streetaddress='S0' where id=1
 
 Update Student set streetaddress=Concat(streetaddress , '-A1')
   ```
+  
+  ### Creating a Table from Existing Table
+  ```sql
+  --- Creating an empty table from Existing table
+create table Student2 
+as
+Select * from Student where 1=0
+
+-- inserting into Student1 table from student
+insert into Student1
+select * from Student 
+  ```
