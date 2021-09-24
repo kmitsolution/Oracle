@@ -242,6 +242,19 @@ select * from EMP2;
 ```sql
   Drop table Student2
 ```
+### Case End Statement
+```sql
+SELECT ENAME,SAL, 
+CASE 
+  WHEN SAL>=20000
+  THEN 'Elgible for Manager'
+  WHEN SAL>=15000
+  THEN 'ELigible for Asst Mgr'
+  ELSE
+  'Do your Regular work'
+  END Promotion
+  From Emp
+```
 ### Sql Functions Refernces
 
 https://docs.oracle.com/cd/B19306_01/server.102/b14200/functions001.htm
