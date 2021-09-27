@@ -37,3 +37,25 @@ END;
 SELECT FUNC1(4) FROM DUAL;
 SELECT ENAME,SAL,FUNC1(SAL) FROM EMP;
 ```
+
+### Example3
+```sql
+create or replace function emp_grade(sal in number)    
+return varchar  
+is     
+grade varchar(20);    
+begin    
+IF sal>=30000 THEN  
+grade:='Manager';
+ELSIF sal>20000 THEN
+grade:='Ass. Manager';
+ELSIF sal>1000 THEN
+grade:='Developer';
+ELSE    
+grade:='Need Improve';
+END IF;
+return grade;
+end;
+select ename,sal,EMP_GRADE(sal) Grade from EMP;
+
+```
