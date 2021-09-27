@@ -80,3 +80,22 @@ create or replace function emp_office(location in varchar)
 select * from dept
 select ename ,sal,dname,loc,emp_office(loc) from emp e inner join dept t on e.deptno=t.deptno;
 ```
+
+### Example 5
+```sql
+CREATE OR REPLACE Function func1(n in number, n1 in out number) RETURN Number IS
+Begin
+n1:=n1+3;
+return n+5;
+end;
+
+Declare
+n1 number:=10;
+n number;
+Begin
+n:=func1(2,n1);
+DBMS_OUTPUT.put_line(n1);
+DBMS_OUTPUT.put_line(n);
+select func1(2,n1) into n1 from dual;  -- Error because we are using INOUT parameter
+End;
+```
