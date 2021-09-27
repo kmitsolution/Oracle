@@ -54,3 +54,17 @@ END;
  
  EXEC Rank
 ```  
+
+ ## Example 
+  ```sql
+  CREATE Procedure rowtype
+AS
+BEGIN
+DECLARE
+emp1 emp%Rowtype;
+BEGIN
+
+select * into emp1 from EMP where empno=1001;
+DBMS_OUTPUT.put_line(emp1.ename);
+END;
+  ```
