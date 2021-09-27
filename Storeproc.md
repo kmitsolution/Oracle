@@ -182,3 +182,24 @@ BEGIN
 END;
            
 ```           
+
+### Example in out parameter
+```sql
+CREATE OR REPLACE PROCEDURE emp_salary_increase
+ (emp_id IN emp.empno%type, salary_inout IN OUT emp.sal%type) 
+ IS 
+    tmp_sal number; 
+ BEGIN 
+    SELECT sal 
+    INTO tmp_sal 
+   FROM emp
+   WHERE empno = emp_id; 
+   IF tmp_sal between 10000 and 20000 THEN 
+      salary_inout := tmp_sal * 1.2; 
+   ELSIF tmp_sal between 20000 and 30000 THEN 
+      salary_inout := tmp_sal * 1.3; 
+   ELSIF tmp_sal > 30000 THEN 
+      salary_inout := tmp_sal * 1.4; 
+   END IF; 
+ END;           
+```           
