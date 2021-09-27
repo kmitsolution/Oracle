@@ -194,12 +194,28 @@ CREATE OR REPLACE PROCEDURE emp_salary_increase
     INTO tmp_sal 
    FROM emp
    WHERE empno = emp_id; 
+  
    IF tmp_sal between 10000 and 20000 THEN 
       salary_inout := tmp_sal * 1.2; 
    ELSIF tmp_sal between 20000 and 30000 THEN 
       salary_inout := tmp_sal * 1.3; 
    ELSIF tmp_sal > 30000 THEN 
       salary_inout := tmp_sal * 1.4; 
+   ELSE
+     salary_inout:=tmp_sal;
+     
    END IF; 
- END;           
+
+ END;
+ set serveroutput on size 30000;
+
+ DECLARE
+ emp_id  emp.empno%type;
+ salary_inout  emp.sal%type;
+ BEGIN
+ emp_id:=1001;
+ emp_salary_increase(salary_inout => salary_inout,emp_id => emp_id);--named parameter
+ DBMS_OUTPUT.PUT_LINE(salary_inout);
+ END;
+         
 ```           
