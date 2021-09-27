@@ -67,4 +67,21 @@ BEGIN
 select * into emp1 from EMP where empno=1001;
 DBMS_OUTPUT.put_line(emp1.ename);
 END;
-  ```
+ ```
+  
+### Example Stored proc with input parameter
+```sql
+  CREATE or Replace Procedure rowtype(n number,name varchar)
+AS
+BEGIN
+DECLARE
+emp1 emp%Rowtype;
+BEGIN
+
+select * into emp1 from EMP where empno=n;
+DBMS_OUTPUT.put_line(emp1.ename);
+DBMS_OUTPUT.PUT_LINE(name);
+END;
+END;
+EXEC rowtype(1003,'cognixia') ; 
+```  
