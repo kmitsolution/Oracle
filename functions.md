@@ -59,3 +59,24 @@ end;
 select ename,sal,EMP_GRADE(sal) Grade from EMP;
 
 ```
+### Example 4
+```sql
+create or replace function emp_office(location in varchar)
+   return varchar
+   AS
+    office_type varchar(20);
+    begin
+    IF location='NY'
+    THEN
+    office_type:='Head Office';
+    ELSIF location='BANGALORE' 
+  THEN
+  office_type:='Branch Office';
+   ELSE
+   office_type:='No Location';
+   END IF;
+   return office_type;
+  end;
+select * from dept
+select ename ,sal,dname,loc,emp_office(loc) from emp e inner join dept t on e.deptno=t.deptno;
+```
