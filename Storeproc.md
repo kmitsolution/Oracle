@@ -29,3 +29,28 @@ END;
 END;
 
 ```
+## Example
+```sql
+      CREATE OR REPLACE Procedure RANK
+    AS
+    BEGIN
+    declare
+    name1 varchar(20);
+    Sal1 number;
+    BEGIN
+        SELECT ENAME,SAL INTO Name1,Sal1  FROM EMP Where Empno=1001;
+        IF sal1>=1500 THEN
+         dbms_output.put_line('manager'||Name1);
+         END IF;
+      IF sal1>=1000 and sal1<1500 THEN
+          dbms_output.put_line('asst manager'||Name1);
+        END IF;
+    IF sal1<1000 THEN
+     
+          dbms_output.put_line('develoeper'||Name1);
+       END IF;
+   END;
+ END;
+ 
+ EXEC Rank
+```  
