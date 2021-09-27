@@ -86,3 +86,24 @@ END;
 END;
 EXEC rowtype(1003,'cognixia') ; 
 ```  
+
+  ### Example
+  ```sql
+  create procedure first
+AS
+Begin
+DBMS_OUTPUT.PUT_LINE('First Procedure is executed');
+End;
+
+CREATE or replace Procedure Second
+AS
+Begin
+first;
+DBMS_OUTPUT.PUT_LINE('Second Procedure');
+End;
+
+Exec Second
+  ```
+  ### Example --Find the Dept of a particurlar emp and print its Dname using Join
+-- Find the Dept of a particurlar emp and print its Dname using below procedure
+   DeptProcedure(Deptno) returns the Dname from Dept Table --one proc
