@@ -153,4 +153,32 @@ rowtype(emp1,1001);
 dbms_output.put_line(emp1.ename);
 END;           
 ```           
+## Example of in out parameter
+```sql
+CREATE PROCEDURE TEST2(N IN OUT NUMBER) IS
+BEGIN
+  N:= N+2;
+  DBMS_OUTPUT.put_line(N);
+END;
+
+DECLARE
+N1 NUMBER:=0;
+BEGIN
+TEST2(N1);
+END;
+
+CREATE OR REPLACE PROCEDURE squareNum(x IN OUT number) IS 
+BEGIN 
+  x := x * x; 
+END; 
+
+DECLARE 
+   a number; 
+ 
+BEGIN 
+   a:= 23; 
+   squareNum(a); 
+   dbms_output.put_line(' Square of (23): ' || a); 
+END;
            
+```           
