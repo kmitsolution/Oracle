@@ -133,3 +133,24 @@ END;
 
 
   ```
+## Example of in out parameter           
+```sql
+CREATE OR REPLACE Procedure rowtype(emp1 out  emp%Rowtype,n number)
+AS
+BEGIN
+DECLARE
+
+BEGIN
+select * into emp1 from EMP where empno=n;
+DBMS_OUTPUT.put_line(emp1.ename);
+END;
+END;  
+
+DECLARE
+emp1 emp%Rowtype;
+BEGIN
+rowtype(emp1,1001);
+dbms_output.put_line(emp1.ename);
+END;           
+```           
+           
