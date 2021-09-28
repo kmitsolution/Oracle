@@ -1,5 +1,5 @@
 ## functions
-These are set of PL/SQL Statements which returns a value.
+These are set of PL/SQL Statements which returns a value.In Function we cannot use DML/DDL/DCL statements we can use DQL (SELECT).
 
 ### InBuilt Functions
 These functions are already available in oracle, like upper(),lower(),Round() etc.
