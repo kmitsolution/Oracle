@@ -80,3 +80,25 @@ END IF;
 END;
 
 ```
+
+### Example
+```sql
+CREATE OR REPLACE TRIGGER TRG1
+AFTER DELETE OR INSERT OR UPDATE OF SAL ON EMP
+FOR EACH ROW
+BEGIN
+IF INSERTING THEN
+    INSERT into  Audit1 Values('INSERT :-> NEW SAL=' || TO_CHAR(:new.sal));
+ELSIF UPDATING THEN
+IF :new.sal = :old.sal THEN
+DBMS_OUTPUT.put_line('No Sal Updated');
+ELSE
+ INSERT into  Audit1 Values('UPDATE:-> OLD SAL='|| TO_CHAR(:old.sal) || ',NEW SAL=' || TO_CHAR(:new.sal));
+DBMS_OUTPUT.put_line('Sal Updated');
+END IF;
+ELSIF DELETING THEN
+   INSERT into  Audit1 Values('DELETE:->OLD SAL='|| TO_CHAR(:old.sal));
+END IF;
+END;
+
+```
