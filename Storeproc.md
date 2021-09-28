@@ -219,3 +219,13 @@ CREATE OR REPLACE PROCEDURE emp_salary_increase
  END;
          
 ```           
+  
+```sql
+  CREATE OR REPLACE PROCEDURE PR1 IS
+BEGIN
+UPDATE EMP SET SAL=SAL+10;
+END;
+
+EXEC PR1
+SELECT * FROM EMP;
+```  
