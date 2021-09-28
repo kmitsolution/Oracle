@@ -36,8 +36,8 @@ GRANT SELECT,DELETE on System.EMP to raman
 ```sql
 Revoke SELECT,DELETE ON EMP from raman
 ``
-
 ### To provide admin access
+
 ```sql
 GRANT sysdba TO username
 ```
