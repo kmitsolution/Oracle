@@ -35,3 +35,32 @@ cursor cur1 is
  close cur1;
  END;
 ```
+
+### Example
+
+```sql
+
+DECLARE
+emprec emp%RowType;
+cursor cur2 is
+ select * from emp where sal<5000;
+ BEGIN
+ Open cur2;
+ LOOP
+   FETCH cur2 into emprec;
+IF emprec.sal>=50000 THEN
+UPDATE emp set sal=sal*1.2 where empno=emprec.empno;
+ELSIF emprec.sal>=40000 THEN
+UPDATE emp set sal=sal*1.5 where empno=emprec.empno;
+ELSIF emprec.sal>=20000 THEN
+DBMS_OUTPUT.put_line('No Record Update1' || emprec.ename);
+ELSE
+DBMS_OUTPUT.put_line('No Record Update' || emprec.ename);
+END IF;
+      EXIT when cur2%notfound;
+   DBMS_OUTPUT.put_line(emprec.ename);
+ END LOOP;
+ close cur2;
+ END;
+
+```
