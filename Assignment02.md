@@ -5,7 +5,7 @@
 4. Insert some records in the table
 5. Create a Table DEPT_EMP with ID(primary key),DEPTNO(Reference key to DeptNo of DEPT table),EMPNO(Reference key to EMPNO of Employee table)
 6. Insert some records in this table. This table indicates that which employee belongs to which dept. An employee can belong to multiple depts
-7. Create a procedure to find a particular employee's department
+7. Create a procedure to find a particular employee's department (return only one deptname) Hint use rownum
 8. Create a procedure which takes 2 parameters empno and varchar (which can be y or n). and in this procedure increase all employees sal by 10% and if second parameter is y then it should be permanent change and if it is n then increase salary should be rolled back.
 9. Create function which finds the grade on an employee on the basis of salary
     if salary >=10000   GRADE 'A'
