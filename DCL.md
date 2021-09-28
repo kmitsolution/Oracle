@@ -17,7 +17,8 @@ DROP USER raman
 ### To provide connect permission to database
 ```sql
 GRANT CONNECT TO RAMAN;
-```Revoke SELECT,DELETE ON EMP from raman
+```
+
 
 ### To provide session permission
 ```sql
@@ -35,5 +36,27 @@ GRANT SELECT,DELETE on System.EMP to raman
 ```sql
 Revoke SELECT,DELETE ON EMP from raman
 ``
+
+### To provide admin access
+```sql
+GRANT sysdba TO username
+```
+
+### Create any table
+```sql
+GRANT CREATE ANY TABLE TO username
+```
+
+### Drop any table
+
+```sql
+GRANT DROP ANY TABLE TO username
+```
+
+### Revoke permission
+```sql
+REVOKE CREATE TABLE FROM username
+```
+
 
 
